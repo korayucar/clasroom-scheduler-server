@@ -1,0 +1,353 @@
+{
+ "kind": "discovery#rpcDescription",
+ "etag": "\"ADiYQGKhdYR9rpbhIFHih-UBYRs/m9xoi12WpbBi0MUxwd0bIZEf3-g\"",
+ "discoveryVersion": "v1",
+ "id": "personendpoint:v1",
+ "name": "personendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "kondi.com",
+ "ownerName": "kondi.com",
+ "packagePath": "android.classroomscheduler",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rpc",
+ "rootUrl": "https://fancyscheduler.appspot.com/_ah/api/",
+ "rpcUrl": "https://fancyscheduler.appspot.com/_ah/api/rpc",
+ "rpcPath": "/_ah/api/rpc",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Attendance": {
+   "id": "Attendance",
+   "type": "object",
+   "properties": {
+    "classcode": {
+     "type": "string"
+    },
+    "starting_time": {
+     "type": "string",
+     "format": "int64"
+    },
+    "status": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "AttendanceResponse": {
+   "id": "AttendanceResponse",
+   "type": "object",
+   "properties": {
+    "att": {
+     "$ref": "Attendance"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_Attendance": {
+   "id": "CollectionResponse_Attendance",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Attendance"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "CollectionResponse_Person": {
+   "id": "CollectionResponse_Person",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Person"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Payment": {
+   "id": "Payment",
+   "type": "object",
+   "properties": {
+    "classespaid": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "date": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "money": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "Person": {
+   "id": "Person",
+   "type": "object",
+   "properties": {
+    "attendances": {
+     "type": "array",
+     "items": {
+      "$ref": "Attendance"
+     }
+    },
+    "email": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "payments": {
+     "type": "array",
+     "items": {
+      "$ref": "Payment"
+     }
+    },
+    "phone": {
+     "$ref": "PhoneNumber"
+    },
+    "privilege": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "PhoneNumber": {
+   "id": "PhoneNumber",
+   "type": "object",
+   "properties": {
+    "number": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "personendpoint.addOrUpdateAttendance": {
+   "id": "personendpoint.addOrUpdateAttendance",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true
+    },
+    "resource": {
+     "$ref": "Attendance"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "id"
+   ],
+   "returns": {
+    "$ref": "Attendance"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.getAttendances": {
+   "id": "personendpoint.getAttendances",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "CollectionResponse_Attendance"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.getPerson": {
+   "id": "personendpoint.getPerson",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "Person"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.getSingleAttendance": {
+   "id": "personendpoint.getSingleAttendance",
+   "allowGet": true,
+   "parameters": {
+    "cal_id": {
+     "type": "string",
+     "required": true
+    },
+    "id": {
+     "type": "string",
+     "required": true
+    },
+    "start_time": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id",
+    "start_time",
+    "cal_id"
+   ],
+   "returns": {
+    "$ref": "AttendanceResponse"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.insertPerson": {
+   "id": "personendpoint.insertPerson",
+   "parameters": {
+    "resource": {
+     "$ref": "Person"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Person"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.listPerson": {
+   "id": "personendpoint.listPerson",
+   "allowGet": true,
+   "parameters": {
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    }
+   },
+   "returns": {
+    "$ref": "CollectionResponse_Person"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.removePerson": {
+   "id": "personendpoint.removePerson",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "personendpoint.updatePerson": {
+   "id": "personendpoint.updatePerson",
+   "parameters": {
+    "resource": {
+     "$ref": "Person"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Person"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

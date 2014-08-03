@@ -1,0 +1,367 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://fancyscheduler.appspot.com/_ah/api",
+  "name" : "personendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://fancyscheduler.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "kondi.com",
+  "ownerName" : "kondi.com",
+  "packagePath" : "android.classroomscheduler",
+  "methods" : {
+    "personendpoint.addOrUpdateAttendance" : {
+      "path" : "addOrUpdateAttendance/{id}",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.addOrUpdateAttendance",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "personendpoint.getPerson" : {
+      "path" : "person/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.getPerson",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "personendpoint.updatePerson" : {
+      "path" : "person",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.updatePerson",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "personendpoint.removePerson" : {
+      "path" : "person/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.removePerson",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "personendpoint.getAttendances" : {
+      "path" : "collectionresponse_attendance/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.getAttendances",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "personendpoint.listPerson" : {
+      "path" : "person",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.listPerson",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "personendpoint.getSingleAttendance" : {
+      "path" : "attendanceresponse/{id}/{start_time}/{cal_id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.getSingleAttendance",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          },
+          "start_time" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "cal_id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "personendpoint.insertPerson" : {
+      "path" : "person",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.kondi.android.classroomscheduler.PersonEndpoint.insertPerson",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Attendance" : {
+        "id" : "Attendance",
+        "type" : "object",
+        "properties" : {
+          "starting_time" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "status" : {
+            "type" : "integer"
+          },
+          "classcode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Person" : {
+        "id" : "Person",
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "privilege" : {
+            "type" : "integer"
+          },
+          "phone" : {
+            "$ref" : "PhoneNumber"
+          },
+          "attendances" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Attendance"
+            }
+          },
+          "payments" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Payment"
+            }
+          }
+        }
+      },
+      "PhoneNumber" : {
+        "id" : "PhoneNumber",
+        "type" : "object",
+        "properties" : {
+          "number" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Payment" : {
+        "id" : "Payment",
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "classespaid" : {
+            "type" : "integer"
+          },
+          "money" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "CollectionResponse_Attendance" : {
+        "id" : "CollectionResponse_Attendance",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Attendance"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Person" : {
+        "id" : "CollectionResponse_Person",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Person"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AttendanceResponse" : {
+        "id" : "AttendanceResponse",
+        "type" : "object",
+        "properties" : {
+          "att" : {
+            "$ref" : "Attendance"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.kondi.android.classroomscheduler.PersonEndpoint.addOrUpdateAttendance" : {
+        "request" : {
+          "$ref" : "Attendance"
+        },
+        "response" : {
+          "$ref" : "Attendance"
+        }
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.getPerson" : {
+        "response" : {
+          "$ref" : "Person"
+        }
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.updatePerson" : {
+        "request" : {
+          "$ref" : "Person"
+        },
+        "response" : {
+          "$ref" : "Person"
+        }
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.removePerson" : {
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.getAttendances" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Attendance"
+        }
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.listPerson" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Person"
+        }
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.getSingleAttendance" : {
+        "response" : {
+          "$ref" : "AttendanceResponse"
+        }
+      },
+      "com.kondi.android.classroomscheduler.PersonEndpoint.insertPerson" : {
+        "request" : {
+          "$ref" : "Person"
+        },
+        "response" : {
+          "$ref" : "Person"
+        }
+      }
+    }
+  }
+}
